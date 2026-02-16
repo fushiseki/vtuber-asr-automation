@@ -1,0 +1,19 @@
+{
+  "entries": [
+    {
+      "video_id": "abc123",
+      "url": "https://youtube.com/watch?v=abc123",
+      "title": "Biboo plays some game",
+      "status": "waiting_timestamps",
+      "raw_file": "/path/to/abc123.mp4",
+      "video_duration": 7234.5,
+      "segments": [
+        {"start": "00:10:30", "end": "01:45:20"},
+        {"start": "01:50:00", "end": null}
+      ],
+      "channel": "Koseki Bijou Ch.",
+      "discovered_at": "2026-02-15T04:00:00",
+      "last_updated": "2026-02-15T04:05:00"
+    }
+  ]
+}

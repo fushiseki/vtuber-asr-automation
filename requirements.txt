@@ -1,0 +1,6 @@
+faster-whisper
+gradio
+pydantic>=2.0
+python-dotenv
+requests
+yt-dlp
