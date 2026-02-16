@@ -221,12 +221,17 @@ def run_cmd(cmd: list[str], *, stream_output: bool = False) -> str:
 
 def run_yt_dlp_download(url: str, out_template: str, cookies_browser: str) -> None:
     """Download with yt-dlp using a few safe fallback combinations."""
+    # YouTube membership / gated streams increasingly require solving JS challenges.
+    # When we use browser cookies, also enable the EJS solver via a JS runtime.
+    ejs_args = ["--js-runtimes", "deno", "--remote-components", "ejs:github"]
+
     attempts = [
-        ["yt-dlp", "--cookies-from-browser", cookies_browser, "-o", out_template, url],
+        ["yt-dlp", "--cookies-from-browser", cookies_browser, *ejs_args, "-o", out_template, url],
         [
             "yt-dlp",
             "--cookies-from-browser",
             cookies_browser,
+            *ejs_args,
             "-f",
             "bv*+ba/b",
             "-o",
